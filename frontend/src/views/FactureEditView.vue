@@ -104,9 +104,7 @@
 			
 			<div class="mb-3 d-flex gap-2">
 				<BButton @click="onCancel" type="button" variant="secondary">Annuler</BButton>
-				<BButton @click="onDelete" iconLeft="trash" type="button" variant="danger"
-				>Supprimer</BButton
-				>
+				<BButton @click="onDelete" iconLeft="trash" type="button" variant="danger">Supprimer</BButton>
 				<BButton class="ms-auto" iconLeft="save" type="submit" variant="primary"
 				>Enregistrer</BButton
 				>
