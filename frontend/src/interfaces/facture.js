@@ -4,9 +4,9 @@ const factureInterface = {
 	client: '',
 	dateEmission: '',
 	detail: [],
-	remises: '',
-	paye: '',
-	tva: ''
+	remises: 0,
+	paye: 0,
+	tva: 0.2
 }
 
 export { factureInterface }

@@ -3,117 +3,103 @@
 		<h1><i class="bi bi-chevron-down me-2"></i>Editer une facture</h1>
 
 		<form @submit.prevent="onSaveFacture" v-if="facture">
-			<div class="mb-3">
-				<label for="numero" class="form-label">Facture N° :</label>
-				<input type="text" class="form-control" v-model="facture.numero" name="numero" id="numero" />
-			</div>
-			<div class="mb-3">
-				<label for="description" class="form-label">Description :</label>
-				<input type="text" class="form-control" v-model="facture.description" name="description" id="description" />
-			</div>
-			<div class="mb-3">
-				<label for="dateEmission" class="form-label">Emise le :</label>
-				<input
-				type="date"
-				class="form-control"
-				v-model="dateEmission"
-				name="dateEmission"
-				id="dateEmission"
-				/>
-			</div>
-			<div class="mb-3">
-				<label for="client" class="form-label">Client :</label>
-				<select v-model="facture.client" id="client" class="form-select">
-				<option value="">-- Sélectionner un client --</option>
-				<option v-for="client in clients" :key="client.id" :value="client.id">
-					{{ client.nom }} {{ client.prenom }}
-				</option>
-				</select>
-			</div>
-			<h5>Détails</h5>
-			<table class="table table-sm table-bordered">
-				<thead>
-				<tr>
-					<th>Actions</th>
-					<th>Prestation</th>
-					<th>Quantité</th>
-					<th>Montant unitaire (€)</th>
-					<th>Montant total (€)</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr v-for="(detail, index) in facture.detail" :key="index">
-					<td>
-					<button type="button" class="btn btn-sm btn-danger" @click="removeDetail(index)">
-						&times;
-					</button>
-					</td>
-					<td>
-					<input
-						type="text"
-						class="form-control form-control-sm"
-						v-model="detail.prestation"
-						placeholder="Prestation"
-					/>
-					</td>
-					<td>
-					<input
-						type="number"
-						min="0"
-						class="form-control form-control-sm"
-						v-model.number="detail.quantite"
-					/>
-					</td>
-					<td>
-					<input
-						type="number"
-						min="0"
-						step="0.01"
-						class="form-control form-control-sm"
-						v-model.number="detail.prixUnitaire"
-					/>
-					</td>
-					<td>
-					{{ (detail.quantite * detail.prixUnitaire).toFixed(2) }}
-					</td>
-				</tr>
-				</tbody>
-			</table>
-			<button type="button" class="btn btn-sm btn-primary mb-3" @click="addDetail">
-				+ Ajouter une prestation
-			</button>
-
-			<!-- Remises et Payé -->
-			<div class="row mb-3">
-				<div class="col-md-4">
-				<label for="remises" class="form-label">Remises (€) :</label>
-				<input
-					type="number"
-					min="0"
-					step="0.01"
-					class="form-control"
-					id="remises"
-					v-model.number="facture.remises"
-				/>
+			<!-- Section Informations générales -->
+			<div class="card mb-4">
+				<div class="card-header fw-bold">Informations de la facture</div>
+				<div class="card-body">
+				<div class="row g-3">
+					<div class="col-md-4">
+					<label for="numero" class="form-label">Facture N°</label>
+					<input type="text" class="form-control" v-model="facture.numero" id="numero" />
+					</div>
+					<div class="col-md-8">
+					<label for="description" class="form-label">Description</label>
+					<input type="text" class="form-control" v-model="facture.description" id="description" />
+					</div>
+					<div class="col-md-4">
+					<label for="dateEmission" class="form-label">Date d'émission</label>
+					<input type="date" class="form-control" v-model="dateEmission" id="dateEmission" />
+					</div>
+					<div class="col-md-8">
+					<label for="client" class="form-label">Client</label>
+					<select v-model="facture.client" id="client" class="form-select">
+						<option value="">-- Sélectionner un client --</option>
+						<option v-for="client in clients" :key="client.id" :value="client.id">
+						{{ client.nom }} {{ client.prenom }}
+						</option>
+					</select>
+					</div>
 				</div>
-				<div class="col-md-4">
-				<label for="paye" class="form-label">Payé (€) :</label>
-				<input
-					type="number"
-					min="0"
-					step="0.01"
-					class="form-control"
-					id="paye"
-					v-model.number="facture.paye"
-				/>
 				</div>
 			</div>
 
-			<!-- Totaux -->
-			<div class="mb-3">
+			<!-- Section Détails -->
+			<div class="card mb-4">
+				<div class="card-header fw-bold d-flex justify-content-between align-items-center">
+				<span>Détails de la facture</span>
+				<button type="button" class="btn btn-sm btn-outline-primary" @click="addDetail">
+					+ Ajouter une prestation
+				</button>
+				</div>
+				<div class="card-body p-0">
+				<table class="table table-sm table-bordered m-0">
+					<thead class="table-light">
+					<tr>
+						<th style="width: 50px">X</th>
+						<th>Prestation</th>
+						<th style="width: 120px">Quantité</th>
+						<th style="width: 150px">PU (€)</th>
+						<th style="width: 150px">Total (€)</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr v-for="(detail, index) in facture.detail" :key="index">
+						<td class="text-center">
+							<BButton variant="danger" size="sm" icon-left="trash-fill" @click="removeDetail(index)"></BButton>
+						</td>
+						<td>
+						<input type="text" class="form-control form-control-sm" v-model="detail.prestation" placeholder="Prestation" />
+						</td>
+						<td>
+						<input type="number" min="0" class="form-control form-control-sm" v-model.number="detail.quantite" />
+						</td>
+						<td>
+						<input type="number" min="0" step="0.01" class="form-control form-control-sm" v-model.number="detail.prixUnitaire" />
+						</td>
+						<td class="text-end align-middle">
+						{{ (detail.quantite * detail.prixUnitaire).toFixed(2) }}
+						</td>
+					</tr>
+					</tbody>
+				</table>
+				</div>
+			</div>
+
+			<!-- Section Remises / Paiement -->
+			<div class="card mb-4">
+				<div class="card-header fw-bold">Paiement et remises</div>
+				<div class="card-body">
+				<div class="row g-3">
+					<div class="col-md-6">
+					<label for="remises" class="form-label">Remises (€)</label>
+					<input type="number" min="0" step="0.01" class="form-control" id="remises" v-model.number="facture.remises" />
+					</div>
+					<div class="col-md-6">
+					<label for="paye" class="form-label">Payé (€)</label>
+					<input type="number" min="0" step="0.01" class="form-control" id="paye" v-model.number="facture.paye" />
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<!-- Section Totaux -->
+			<div class="card mb-4">
+				<div class="card-header fw-bold">Résumé</div>
+				<div class="card-body">
 				<p><strong>Total HT :</strong> {{ totalHT.toFixed(2) }} €</p>
 				<p><strong>TVA ({{ (facture.tva * 100).toFixed(0) }}%) :</strong> {{ totalTVA.toFixed(2) }} €</p>
-				<p><strong>Total TTC :</strong> <span class="fw-bold">{{ totalTTC.toFixed(2) }} €</span></p>
+				<p class="fs-5"><strong>Total TTC :</strong> <span class="fw-bold">{{ totalTTC.toFixed(2) }} €</span></p>
+				</div>
 			</div>
 			
 			<div class="mb-3 d-flex gap-2">
@@ -135,6 +121,7 @@ import { useClientStore } from '@/stores/client'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
+import BButton from '@/components/BButton.vue'
 const $router = useRouter()
 const factureStore = useFactureStore()
 const { facture } = storeToRefs(factureStore)

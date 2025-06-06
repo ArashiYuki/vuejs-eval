@@ -1,6 +1,6 @@
 <!-- FactureItem.vue -->
 <template>
-  <li class="d-flex justify-content-between align-items-center text-secondary py-2">
+  <li class="d-flex justify-content-between align-items-center text-secondary py-2 list-group-item">
     <div class="d-flex gap-3" style="flex: 1; min-width: 0;">
       <span style="min-width: 110px; white-space: nowrap;">
         {{ facture.dateEmission }} -

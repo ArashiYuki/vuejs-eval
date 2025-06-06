@@ -1,6 +1,6 @@
 <!-- ClientItem.vue -->
 <template>
-  <li class="d-flex justify-content-between align-items-center text-secondary py-2">
+  <li class="d-flex justify-content-between align-items-center text-secondary py-2 list-group-item">
     <div class="d-flex gap-3" style="flex: 1; min-width: 0;">
 		<span style="min-width: 110px; white-space: nowrap;">
 			{{ client.nom }} {{ client.prenom }}
@@ -8,10 +8,10 @@
 		<span style="min-width: 110px; white-space: nowrap;">
 			{{ client.entreprise }}
 		</span>
-		<span style="min-width: 110px; white-space: nowrap;">
-        	{{ client.dateAjout }}
-      	</span>
     </div>
+	<span style="min-width: 110px; white-space: nowrap;">
+		{{ client.dateAjout }}
+	</span>
 
     <div class="d-flex gap-3 align-items-center" style="min-width: 360px; justify-content: flex-end;">
 

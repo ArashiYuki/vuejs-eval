@@ -1,18 +1,28 @@
 <template>
   <section class="container py-5">
-	<div class="d-flex justify-content-between">
+	<div class="d-flex justify-content-between align-items-center">
 		<h1 class="mb-4"><i class="bi bi-chevron-down me-2"></i>Liste des clients</h1>
 		<BButton
           iconLeft="plus-circle"
           variant="outline-primary"
-          class="w-100 mt-3"
+		  size="sm"
+          class="mb-3"
           @click="$router.push('/clients/create')"
         >
           Ajouter une client
         </BButton>
 	</div>
 
-    <ul class="list-unstyled">
+	<div class="d-flex gap-3" style="flex: 1; min-width: 0;">
+		<span style="min-width: 110px; white-space: nowrap;">
+			Client
+		</span>
+		<span style="min-width: 110px; white-space: nowrap;">
+			Entreprise
+		</span>
+	</div>
+
+    <ul class="list-unstyled list-group">
       <ClientItem
         v-for="client in clients"
         :key="client.id"

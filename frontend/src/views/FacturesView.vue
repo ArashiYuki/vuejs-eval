@@ -1,18 +1,19 @@
 <template>
   <section class="container py-5">
-	<div class="d-flex justify-content-between">
+	<div class="d-flex justify-content-between align-items-center">
 		<h1 class="mb-4"><i class="bi bi-chevron-down me-2"></i>Liste des factures</h1>
 		<BButton
           iconLeft="plus-circle"
           variant="outline-primary"
-          class="w-100 mt-3"
+		  size="sm"
+          class="mb-3"
           @click="$router.push('/factures/create')"
         >
           Ajouter une facture
         </BButton>
 	</div>
 
-    <ul class="list-unstyled">
+    <ul class="list-unstyled list-group">
       <FactureItem
         v-for="facture in factures"
         :key="facture.id"
