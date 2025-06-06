@@ -1,6 +1,16 @@
 <template>
   <section class="container py-5">
-    <h1 class="mb-4">Liste des factures</h1>
+	<div class="d-flex justify-content-between">
+		<h1 class="mb-4"><i class="bi bi-chevron-down me-2"></i>Liste des factures</h1>
+		<BButton
+          iconLeft="plus-circle"
+          variant="outline-primary"
+          class="w-100 mt-3"
+          @click="$router.push('/factures/create')"
+        >
+          Ajouter une facture
+        </BButton>
+	</div>
 
     <ul class="list-unstyled">
       <FactureItem
@@ -22,6 +32,7 @@ import { onBeforeMount } from 'vue'
 import { useFactureStore } from '@/stores/facture'
 import { storeToRefs } from 'pinia'
 import FactureItem from '@/components/FactureItem.vue'
+import BButton from '@/components/BButton.vue'
 
 const factureStore = useFactureStore()
 const { factures } = storeToRefs(factureStore)

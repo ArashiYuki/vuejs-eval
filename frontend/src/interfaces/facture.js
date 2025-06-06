@@ -1,4 +1,4 @@
-const gameInterface = {
+const factureInterface = {
 	numero: '',
 	description: '',
 	client: '',
@@ -9,4 +9,4 @@ const gameInterface = {
 	tva: ''
 }
 
-export { gameInterface }
+export { factureInterface }

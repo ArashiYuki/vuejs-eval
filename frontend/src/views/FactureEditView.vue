@@ -16,7 +16,7 @@
 				<input
 				type="date"
 				class="form-control"
-				v-model.number="facture.dateEmission"
+				v-model="dateEmission"
 				name="dateEmission"
 				id="dateEmission"
 				/>
@@ -148,6 +148,22 @@ const props = defineProps({
     type: [String, Number],
     required: true,
   },
+})
+
+
+const dateEmission = computed({
+  get() {
+    if (!facture.value.dateEmission) return ''
+    // Si c’est une date (timestamp) ou un string mal formé, convertir en YYYY-MM-DD
+    const d = new Date(facture.value.dateEmission)
+    if (isNaN(d)) return ''
+    return d.toISOString().slice(0, 10)
+  },
+  set(value) {
+    // La valeur vient du input au format YYYY-MM-DD
+    // On peut stocker la string telle quelle, ou la convertir en date si besoin
+    facture.value.dateEmission = value
+  }
 })
 
 const totalHT = computed(() => {
