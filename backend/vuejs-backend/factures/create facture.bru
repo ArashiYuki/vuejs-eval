@@ -1,0 +1,36 @@
+meta {
+  name: create facture
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/factures
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "numero": 2093345605,
+    "description": "Facture prestations de consulting et formation",
+    "client": 5,
+    "dateEmission": "01/06/2025",
+    "detail": [
+      {
+        "prestation": "Session de consulting stratégique",
+        "quantite": 4,
+        "prixUnitaire": 600.00
+      },
+      {
+        "prestation": "Atelier de formation équipe",
+        "quantite": 2,
+        "prixUnitaire": 750.00
+      }
+    ],
+    "remises": 150.00,
+    "paye": 3000.00,
+    "tva": 0.2
+  }
+  
+}

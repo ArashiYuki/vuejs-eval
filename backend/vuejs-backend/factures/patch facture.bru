@@ -1,0 +1,21 @@
+meta {
+  name: patch facture
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{url}}/factures/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 4
+}
+
+body:json {
+  {
+    "description": "Facture design graphique et branding."
+  }
+}

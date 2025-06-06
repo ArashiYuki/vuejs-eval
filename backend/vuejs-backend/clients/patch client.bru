@@ -1,0 +1,21 @@
+meta {
+  name: patch client
+  type: http
+  seq: 5
+}
+
+patch {
+  url: {{url}}/clients/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 4
+}
+
+body:json {
+  {
+    "fonction": "Développeuse C#"
+  }
+}

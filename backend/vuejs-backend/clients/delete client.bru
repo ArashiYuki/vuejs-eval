@@ -1,0 +1,15 @@
+meta {
+  name: delete client
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{url}}/clients/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 5
+}

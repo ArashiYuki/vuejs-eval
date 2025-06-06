@@ -1,0 +1,29 @@
+meta {
+  name: create client
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/clients
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "id": 6,
+    "nom": "Lemoine",
+    "prenom": "Sophie",
+    "email": "sophie.lemoine@example.com",
+    "telephone": "0678123456",
+    "entrerprise": "BrightFuture",
+    "fonction": "Consultante",
+    "dateAjout": "10/06/2024",
+    "adresse1": "18 rue des Lilas",
+    "adresse": "-",
+    "codePostal": 44000,
+    "ville": "Nantes",
+    "pays": "France"
+  }
+}
