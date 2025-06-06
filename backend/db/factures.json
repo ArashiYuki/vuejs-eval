@@ -1,77 +1,117 @@
 [
 	{
 		"id": 1,
-		"nom":"John",
-		"prenom":"Favreau",
-		"email":"john@gmail.com",
-		"telephone": "0387452013",
-		"entrerprise": "LucasFilm",
-		"fonction": "Directeur",
-		"dateAjout":"15/01/2021",
-		"adresse1": "2 rue de la poupée qui dort",
-		"adresse": "-",
-		"codePostal": 57000,
-		"ville": "Metz",
-		"pays": "France"
+		"numero": 2093345600,
+		"description": "Facture achat de 8 planches de bois de chêne",
+		"client": 1,
+		"dateEmission": "12/02/2025",
+		"detail": [
+			{
+				"prestation": "Etudes graphique UX",
+				"quantite": 2,
+				"prixUnitaire": 450.00
+			},
+			{
+				"prestation": "Création d'un site Wordpress",
+				"quantite": 5,
+				"prixUnitaire": 450.00
+			},
+			{
+				"prestation": "Hébergement annuel",
+				"quantite": 1,
+				"prixUnitaire": 250.00
+			}
+		],
+		"remises": 0.00,
+		"paye": 250.20,
+		"tva": 0.2
 	},
 	{
 		"id": 2,
-		"nom": "Dupont",
-		"prenom": "Claire",
-		"email": "claire.dupont@yahoo.fr",
-		"telephone": "0612345678",
-		"entrerprise": "TechNova",
-		"fonction": "Responsable Marketing",
-		"dateAjout": "22/03/2022",
-		"adresse1": "10 avenue des Champs",
-		"adresse": "-",
-		"codePostal": 75008,
-		"ville": "Paris",
-		"pays": "France"
+		"numero": 2093345601,
+		"description": "Facture prestation marketing digital",
+		"client": 2,
+		"dateEmission": "20/03/2025",
+		"detail": [
+			{
+				"prestation": "Campagne Google Ads",
+				"quantite": 3,
+				"prixUnitaire": 350.00
+			},
+			{
+				"prestation": "Gestion réseaux sociaux",
+				"quantite": 4,
+				"prixUnitaire": 200.00
+			}
+		],
+		"remises": 50.00,
+		"paye": 1000.00,
+		"tva": 0.2
 	},
 	{
 		"id": 3,
-		"nom": "Martin",
-		"prenom": "Lucas",
-		"email": "lucas.martin@orange.fr",
-		"telephone": "0498765432",
-		"entrerprise": "Green Solutions",
-		"fonction": "Chef de projet",
-		"dateAjout": "05/07/2023",
-		"adresse1": "45 boulevard Saint-Michel",
-		"adresse": "-",
-		"codePostal": 34000,
-		"ville": "Montpellier",
-		"pays": "France"
+		"numero": 2093345602,
+		"description": "Facture développement web et maintenance",
+		"client": 3,
+		"dateEmission": "15/04/2025",
+		"detail": [
+			{
+				"prestation": "Développement backend",
+				"quantite": 10,
+				"prixUnitaire": 500.00
+			},
+			{
+				"prestation": "Maintenance mensuelle",
+				"quantite": 6,
+				"prixUnitaire": 150.00
+			}
+		],
+		"remises": 0.00,
+		"paye": 3000.00,
+		"tva": 0.2
 	},
 	{
 		"id": 4,
-		"nom": "Nguyen",
-		"prenom": "Thi",
-		"email": "thi.nguyen@gmail.com",
-		"telephone": "0789456123",
-		"entrerprise": "DigitalWave",
-		"fonction": "Développeuse",
-		"dateAjout": "12/11/2020",
-		"adresse1": "3 place de la République",
-		"adresse": "-",
-		"codePostal": 13001,
-		"ville": "Marseille",
-		"pays": "France"
+		"numero": 2093345603,
+		"description": "Facture design graphique et branding",
+		"client": 4,
+		"dateEmission": "01/05/2025",
+		"detail": [
+			{
+				"prestation": "Création logo",
+				"quantite": 1,
+				"prixUnitaire": 800.00
+			},
+			{
+				"prestation": "Charte graphique",
+				"quantite": 1,
+				"prixUnitaire": 1200.00
+			}
+		],
+		"remises": 100.00,
+		"paye": 1800.00,
+		"tva": 0.2
 	},
 	{
 		"id": 5,
-		"nom": "Bernard",
-		"prenom": "Paul",
-		"email": "paul.bernard@hotmail.com",
-		"telephone": "0555123456",
-		"entrerprise": "EcoBuild",
-		"fonction": "Architecte",
-		"dateAjout": "30/08/2021",
-		"adresse1": "22 rue du Parc",
-		"adresse": "-",
-		"codePostal": 33000,
-		"ville": "Bordeaux",
-		"pays": "France"
+		"numero": 2093345604,
+		"description": "Facture travaux d’architecture et conseils",
+		"client": 5,
+		"dateEmission": "28/05/2025",
+		"detail": [
+			{
+				"prestation": "Plan architectural",
+				"quantite": 3,
+				"prixUnitaire": 700.00
+			},
+			{
+				"prestation": "Consultation chantier",
+				"quantite": 5,
+				"prixUnitaire": 300.00
+			}
+		],
+		"remises": 0.00,
+		"paye": 2900.00,
+		"tva": 0.2
 	}
 ]
